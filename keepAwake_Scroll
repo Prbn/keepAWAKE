@@ -1,0 +1,26 @@
+$intHours = Read-Host "Enter the time in hours:"
+$interval = 60000 # 10 mins
+
+$WshShell = New-Object -ComObject WScript.Shell
+$random = New-Object System.Random
+
+function tap-numlock {
+    $WshShell.SendKeys("{NUMLOCK}")
+    Start-Sleep -Milliseconds 100  # Sleep for 1 second (1000 milliseconds)
+    $WshShell.SendKeys("{NUMLOCK}")
+}
+
+
+if ($intHours -as [double]) {
+    $intTime = [Int64]([Int64]([Int64]($intHours) * 60 * 60 * 1000)/[Int64]($interval))
+    $random = New-Object System.Random
+    
+    for ($i = 1; $i -le $intTime; $i++) {
+        Write-Host $i"/"$intTime
+        # NUM Lock
+        tap-numlock
+        Start-Sleep -Milliseconds $interval  # Sleep for interval
+    }
+} else {
+    Write-Host "Invalid input. Please enter a numeric value for hours."
+}
