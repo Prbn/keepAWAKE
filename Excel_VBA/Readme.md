@@ -3,7 +3,7 @@
 1. Create a new macro-enabled workbook.
 2. Open VBE, insert Module.- Paste below code into Module
 
-On Sheet1:
+### On Sheet1:
 3. Create two named ranges: "statusmessage" and "TimerStop". The macro will write to these ranges. "statusmessage" will be the current status (i.e. running, or stopped) and the TimerStop will be the random time the macro will stop
 4. Create two buttons. Labeled "Start" and "Stop"
 5. Start button, assign to "KeepScreenActive" sub routine.
